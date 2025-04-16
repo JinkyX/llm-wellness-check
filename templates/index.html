@@ -1,15 +1,71 @@
-# Web UI for CSV upload and download
 <!DOCTYPE html>
 <html>
 <head>
     <title>LLM Wellness Safety Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        #loading {
+            display: none;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #444;
+        }
+        #progress-container {
+            display: none;
+            width: 100%;
+            background-color: #eee;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        #progress-bar {
+            height: 20px;
+            width: 0%;
+            background-color: #4caf50;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+    </style>
+    <script>
+        function showLoading() {
+            document.getElementById("loading").style.display = "block";
+            document.getElementById("progress-container").style.display = "block";
+            pollProgress();
+        }
+
+        function pollProgress() {
+            const interval = setInterval(() => {
+                fetch("/progress")
+                    .then(res => res.json())
+                    .then(data => {
+                        const { total, done } = data;
+                        const percent = Math.floor((done / total) * 100);
+                        document.getElementById("progress-bar").style.width = percent + "%";
+                        document.getElementById("loading").innerText = `🧠 Processing... ${percent}%`;
+
+                        if (done >= total) {
+                            clearInterval(interval);
+                            document.getElementById("loading").innerText = "✅ Processing complete! Downloading CSV...";
+                        }
+                    })
+                    .catch(err => console.error("Error polling progress:", err));
+            }, 5000);
+        }
+    </script>
 </head>
 <body>
     <h2>Upload Interview Notes (CSV)</h2>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" onsubmit="showLoading()">
         <input type="file" name="file" accept=".csv" required>
         <br><br>
         <input type="submit" value="Run Safety Check">
     </form>
+
+    <div id="loading">🧠 Processing...</div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
 </body>
 </html>
