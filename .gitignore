@@ -11,6 +11,8 @@ __pycache__/
 venv/
 .env
 .DS_Store
+progress.json
+
 
 # VSCode or PyCharm
 .idea/
