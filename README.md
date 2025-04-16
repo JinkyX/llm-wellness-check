@@ -106,13 +106,14 @@ pip install -r requirements.txt
 
 ##  Run the Application
 
+1. Start the Flask app
 ```bash
 python app.py
 ```
-Then open your browser and go to:
+2. Open your browser and go to
 http://localhost:5000
 
-You'll see a web form to upload a CSV file and start the safety analysis.
+3. You'll see a web form to upload a CSV file and start the safety analysis.
 
 ## CSV Format
 Your CSV should contain the following columns:
