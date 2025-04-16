@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.DS_Store
+
+# VSCode or PyCharm
+.idea/
+*.iml
+
+# Output
+uploaded/
+output/
+*.csv
+
+# Model files
+*.bin
+*.safetensors
+*.pt
