@@ -1,3 +1,7 @@
+# Ignore model weights and big files
+models/*.gguf
+*.gguf
+
 # Python
 __pycache__/
 *.pyc
