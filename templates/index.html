@@ -1,0 +1,15 @@
+# Web UI for CSV upload and download
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LLM Wellness Safety Check</title>
+</head>
+<body>
+    <h2>Upload Interview Notes (CSV)</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <br><br>
+        <input type="submit" value="Run Safety Check">
+    </form>
+</body>
+</html>
