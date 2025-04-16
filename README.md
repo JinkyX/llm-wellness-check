@@ -1,17 +1,17 @@
-# 🧠 LLM Wellness Safety Check
+# LLM Wellness Safety Check
 
 A lightweight local web app to assess safety concerns from mental health narrative notes using **Mistral 7B Instruct v0.2** (GGUF) — no internet or API keys needed!
 
 ---
 
-## 🖼 Preview
+## Preview
 
 ![Screenshot](assets/ui-preview.png)  
 *Upload CSV, run LLM locally, and get structured results with progress tracking.*
 
 ---
 
-## 🚀 Features
+## Features
 
 * LLM prompt-based assessment of mental health notes
 * Upload `.csv` via browser
@@ -21,7 +21,7 @@ A lightweight local web app to assess safety concerns from mental health narrati
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 llm-wellness-check/
@@ -56,7 +56,7 @@ llm-wellness-check/
 
 ---
 
-## 🛠️ Setup Instructions
+##  Setup Instructions
 
 ### 1. Clone the repository
 
@@ -82,7 +82,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🤖 Download the Mistral 7B Instruct Model
+## Download the Mistral 7B Instruct Model
 
 1. Visit the Hugging Face model page:  
    👉 [TheBloke/Mistral-7B-Instruct-v0.2-GGUF](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF)
@@ -104,7 +104,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run the Application
+##  Run the Application
 
 ```bash
 python app.py
@@ -114,7 +114,7 @@ http://localhost:5000
 
 You'll see a web form to upload a CSV file and start the safety analysis.
 
-## 📄 CSV Format
+## CSV Format
 Your CSV should contain the following columns:
 
 * `QUESTION_ID`
@@ -127,7 +127,7 @@ The app will automatically:
 * Generate a new `LLM_Response` column using the Mistral model
 
 ---
-## 🧪 Testing Tips
+## Testing Tips
 
 * Start with a small file (e.g., 5–10 rows)
 * Try 50–100 rows to evaluate speed
